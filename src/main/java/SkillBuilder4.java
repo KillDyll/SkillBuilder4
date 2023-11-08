@@ -13,6 +13,21 @@ public class SkillBuilder4 {
 
     public static String findTYPattern(String s)
     {
-        // replace this line with your code
+        int firstT = -1;
+        int firstY = -1;
+        // for i in range(0,len(s),1):
+        for (int i =0; i< s.length(); i++){
+            if ((s.charAt(i) == 't' || s.charAt(i) == 'T' )&& firstT == -1){
+                firstT = i;
+            }
+            if ((s.charAt(i) == 'y' || s.charAt(i) == 'Y') && firstT != -1  && firstY == -1 ){
+                firstY= i;
+            }
+        }
+        if (-1 == firstT || -1 == firstY){
+            return "";
+
+        }
+        return s.substring(firstT,firstY +1);
     }
 }
